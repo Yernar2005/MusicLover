@@ -1,0 +1,26 @@
+/*button{*/
+/*    position: relative;*/
+/*    border: 0;*/
+/*    outline: none;*/
+/*    background: none;*/
+/*    color: #000;*/
+/*    font-size: 16px;*/
+/*    font-weight: 700;*/
+/*    cursor: pointer;*/
+/*    transition: color 0.2s;*/
+/*    margin-top: 10px;*/
+/*}*/
+/*.hover-text{*/
+/*    position: absolute;*/
+/*    content: "";*/
+/*    width: 0%;*/
+/*    color: #1ed760;*/
+/*    inset: 0;*/
+/*    overflow: hidden;*/
+/*    border-right: 6px solid #1ed760;*/
+/*    transition: width 0.4s ease;*/
+/*}*/
+/*button:hover .hover-text{*/
+/*    width: 100%;*/
+/*    filter: drop-shadow(0 0 20px #1ed760);*/
+/*}*/

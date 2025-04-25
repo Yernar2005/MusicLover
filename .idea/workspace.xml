@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4573874c-b234-4176-bc5c-f92b0777ce69" name="Changes" comment="main point">
+      <change afterPath="$PROJECT_DIR$/client/src/components/auth/LoginForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/auth/Registration.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/auth/animation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/auth/loginForm.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/auth/registration.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/main/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/main/MediaLibrary.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/main/PopularContent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/main/style/header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/main/style/mediaLibrary.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/main/style/popularContent.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/http/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/models/IUser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/models/response/AuthResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/styles/home.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/welcome/Home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/services/AuthService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/services/UserService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/api-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/exceptions/api-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/user-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/user-service.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/server" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_COMMON_BRANCH" value="main" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/server" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Yernar2005&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Yernar2005/JWT.git&quot;,
+    &quot;accountId&quot;: &quot;45fd4fd1-a5af-44ac-9541-8fded91c91f9&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2urTXBLmrbJIFtsSXy6zQz6BkwW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "idk",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "/Users/temiekhanyernar/WebstormProjects/jwt_auth/client/node_modules/typescript/lib"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components/main" />
+      <recent name="$PROJECT_DIR$/client/src/pages" />
+      <recent name="$PROJECT_DIR$/client/src/components/auth" />
+      <recent name="$PROJECT_DIR$/client/src/components" />
+      <recent name="$PROJECT_DIR$/client/src/pages/auth" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="npm dev" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-WS-251.23774.424" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4573874c-b234-4176-bc5c-f92b0777ce69" name="Changes" comment="" />
+      <created>1743005730363</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743005730363</updated>
+      <workItem from="1743005731378" duration="136000" />
+      <workItem from="1743005927026" duration="16345000" />
+      <workItem from="1743072152182" duration="9498000" />
+      <workItem from="1743142409401" duration="4270000" />
+      <workItem from="1743146695709" duration="6595000" />
+      <workItem from="1743157537549" duration="7183000" />
+      <workItem from="1743184124434" duration="5760000" />
+      <workItem from="1743227953800" duration="882000" />
+      <workItem from="1743228840548" duration="1812000" />
+      <workItem from="1743230659520" duration="29907000" />
+      <workItem from="1743408490669" duration="15137000" />
+      <workItem from="1743668161217" duration="46000" />
+      <workItem from="1743671394929" duration="1888000" />
+      <workItem from="1744117574309" duration="7065000" />
+      <workItem from="1744132388927" duration="4000" />
+      <workItem from="1744467817944" duration="467000" />
+      <workItem from="1744689014599" duration="1461000" />
+      <workItem from="1744691767998" duration="6074000" />
+      <workItem from="1744732987715" duration="4638000" />
+      <workItem from="1744775033208" duration="624000" />
+      <workItem from="1745560127702" duration="18212000" />
+      <workItem from="1745584994146" duration="6811000" />
+      <workItem from="1745591839102" duration="901000" />
+      <workItem from="1745595277095" duration="6638000" />
+    </task>
+    <task id="LOCAL-00001" summary="main point">
+      <option name="closed" value="true" />
+      <created>1743229038573</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743229038573</updated>
+    </task>
+    <task id="LOCAL-00002" summary="main point">
+      <option name="closed" value="true" />
+      <created>1743671409972</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743671409972</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/server" />
+    </ignored-roots>
+    <MESSAGE value="main point" />
+    <option name="LAST_COMMIT_MESSAGE" value="main point" />
+  </component>
+</project>

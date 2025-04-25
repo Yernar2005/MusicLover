@@ -1,0 +1,167 @@
+// Variables
+$background-color: #121212;
+$card-background: #191919;
+$text-color: #ffffff;
+$text-secondary: rgba(255, 255, 255, 0.7);
+$green-button: #1ed760;
+$green-button-hover: #1fdf64;
+$input-background: #121212;
+$input-border: rgba(255, 255, 255, 0.1);
+
+// Global styles
+//body {
+//  margin: 0;
+//  padding: 0;
+//  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+//  Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+//  background-color: $background-color;
+//  color: $text-color;
+//}
+
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 54vh;
+  width: 100%;
+  background-color: $background-color;
+
+  &-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    background-color: $card-background;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.registration-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background-color: $card-background;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.registration-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.registration-form {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: $text-secondary;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      background-color: $input-background;
+      color: $text-color;
+      border: 1px solid $input-border;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        border-color: $text-color;
+      }
+
+      &::placeholder {
+        color: $text-secondary;
+      }
+    }
+  }
+
+  .password-input-container {
+    position: relative;
+
+    input {
+      padding-right: 40px;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: $text-secondary;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+
+  .registration-button {
+    width: 48%;
+    padding: 14px;
+    background-color: $green-button;
+    color: #000;
+    border: none;
+    border-radius: 500px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: $green-button-hover;
+    }
+  }
+}
+
+.login-prompt {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+
+  span {
+    color: $text-secondary;
+    margin-right: 5px;
+  }
+
+  .login-link {
+    background-color: transparent;
+    text-underline: none;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+
+    color: $text-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: $green-button;
+    }
+  }
+}
+

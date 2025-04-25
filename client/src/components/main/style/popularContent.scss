@@ -1,0 +1,109 @@
+
+.popular-tracks {
+  padding: 20px;
+  color: #fff;
+  background-color: rgba(18,18,18,255);
+  border-radius: 20px;
+  height: 373px;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    .popular-tracks__title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .popular-tracks__show-all {
+      background: transparent;
+      border: none;
+      color: #1db954;
+      cursor: pointer;
+      font-size: 14px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.track-card {
+  flex: 0 0 auto;
+  width: 180px;
+  background-color: #181818;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &__cover {
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__info {
+    padding: 12px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  &__artist-row {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  &__explicit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #666;
+    color: #666;
+    margin-right: 4px;
+  }
+
+  &__artist {
+    margin: 0;
+    font-size: 14px;
+    color: #b3b3b3;
+  }
+}
