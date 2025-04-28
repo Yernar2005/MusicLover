@@ -1,108 +1,111 @@
-"use client"
+"use client";
 
-import {useState} from "react"
-import {Play} from "lucide-react"
+import {useCallback, useEffect, useMemo, useState} from "react";
+import {Play, Search} from "lucide-react";
+import debounce from "lodash.debounce";          //  npm i lodash.debounce
+import $api from "../../http/index.ts";
 
-import "./style/popularContent.scss"
+import "./style/popularContent.scss";
 
-interface Track {
-    id: number
-    title: string
-    artist: string
-    explicit: boolean
-    coverImage: string
-    isPlaying?: boolean
+interface TrackSummary {
+    _id: string;
+    Title: string;
+    Artist: string;
+    coverUrl: string;
 }
 
-const PopularContent = () => {
-    const [tracks, setTracks] = useState<Track[]>([
-        {
-            id: 1,
-            title: "нужна",
-            artist: "M'Dee",
-            explicit: false,
-            coverImage: "/placeholder.svg?height=300&width=300",
-        },
-        {
-            id: 2,
-            title: "Fake ID",
-            artist: "kizaru, Icegergert",
-            explicit: true,
-            coverImage: "/placeholder.svg?height=300&width=300",
-        },
-        {
-            id: 3,
-            title: "Дай",
-            artist: "Artur, RICK",
-            explicit: false,
-            coverImage: "/placeholder.svg?height=300&width=300",
-            isPlaying: true,
-        },
-        {
-            id: 4,
-            title: "My Bubble Gum",
-            artist: "Rasheeda",
-            explicit: true,
-            coverImage: "/placeholder.svg?height=300&width=300",
-        },
-        {
-            id: 5,
-            title: "Camar - Самая",
-            artist: "Dark Sensei",
-            explicit: false,
-            coverImage: "/placeholder.svg?height=300&width=300",
-        },
-        {
-            id: 6,
-            title: "Dreamers - Embody Remix",
-            artist: "TGC, Embody",
-            explicit: false,
-            coverImage: "/placeholder.svg?height=300&width=300",
-        },
-    ])
 
-    const togglePlay = (id: number) => {
-        setTracks(
-            tracks.map(track => ({
-                ...track,
-                isPlaying: track.id === id ? !track.isPlaying : false,
-            })),
-        );
+interface Paged {
+    items: TrackSummary[];
+    page: number;
+    limit: number;
+    totalItems: number;
+    totalPages: number;
+}
+
+export default function PopularContent() {
+    const [tracks, setTracks] = useState<TrackSummary[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [playingId, setPlayingId] = useState<string | null>(null);
+    const [query, setQuery] = useState("");
+
+    const load = useCallback(async (search = "") => {
+        const q = search.trim();
+
+        if (q && q.length < 2) {
+            setTracks([]);
+            return;
+        }
+
+        setLoading(true);
+        try {
+            const { data } = await $api.get<Paged | TrackSummary[]>("/api/music", {
+                params: { search: q }
+            });
+            setTracks(Array.isArray(data) ? data : data.items);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        load();
+    }, [load]);
+
+    const debouncedSearch = useMemo(() => debounce(load, 1_000), [load]);
+    useEffect(() => () => debouncedSearch.cancel(), [debouncedSearch]);
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setQuery(value);
+        debouncedSearch(value);
     };
+
+    const togglePlay = useCallback(
+        (id: string) => setPlayingId(cur => (cur === id ? null : id)),
+        []
+    );
 
     return (
         <div className="popular-tracks">
             <div className="popular-tracks__header">
                 <h2 className="popular-tracks__title">Популярные треки</h2>
-                <button className="popular-tracks__show-all">Показать все</button>
+
+                <div className="search-box">
+                    <Search size={16} className="search-icon"/>
+                    <input
+                        value={query}
+                        onChange={handleSearch}
+                        placeholder="Поиск по названию или артисту…"
+                        className="search-input"
+                    />
+                </div>
             </div>
-            <div className="popular-tracks__grid">
-                {tracks.map(track => (
-                    <div key={track.id} className="track-card">
-                        <div className="track-card__cover" onClick={() => togglePlay(track.id)}>
-                            <img
-                                src={track.coverImage}
-                                alt={`${track.title} cover`}
-                                className="track-card__image"
-                            />
-                            {track.isPlaying && (
-                                <div className="track-card__play-button">
-                                    <Play size={36} />
-                                </div>
-                            )}
-                        </div>
-                        <div className="track-card__info">
-                            <h3 className="track-card__title">{track.title}</h3>
-                            <div className="track-card__artist-row">
-                                {track.explicit && <span className="track-card__explicit">E</span>}
-                                <p className="track-card__artist">{track.artist}</p>
+
+            {loading ? (
+                <p>Загрузка…</p>
+            ) : (
+                <div className="popular-tracks__grid">
+                    {tracks.map(t => (
+                        <div key={t._id} className="track-card">
+                            <div className="track-card__cover" onClick={() => togglePlay(t._id)}>
+                                <img src={t.coverUrl} alt={t.Title} className="track-card__image"/>
+                                {playingId === t._id && (
+                                    <div className="track-card__play-button">
+                                        <Play size={36}/>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="track-card__info">
+                                <h3 className="track-card__title">{t.Title}</h3>
+                                <p className="track-card__artist">{t.Artist}</p>
                             </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                    {tracks.length === 0 && <p className="mt-4 text-gray-500">Ничего не найдено</p>}
+                </div>
+            )}
         </div>
-    )
+    );
 }
-
-export default PopularContent;

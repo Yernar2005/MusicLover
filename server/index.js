@@ -12,13 +12,13 @@ const musicRoutes = require('./router/music-route');
 
 
 const app = express();
+app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
 
 
-connectMusicDB().then( ()=> console.log('Connected to DB')).catch(e => console.log("Error in connectDB: ", e));
+// connectMusicDB().then( ()=> console.log('Connected to DB')).catch(e => console.log("Error in connectDB: ", e));
 app.use(express.json())
 app.use('/api/music', musicRoutes);
 
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
 app.use(express.json());
 app.use(cookieParser());
 

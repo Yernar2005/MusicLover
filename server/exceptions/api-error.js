@@ -21,4 +21,8 @@ module.exports = class ApiError extends Error {
         return new ApiError(404, message, []);
     }
 
+    static ForbiddenError(message) {
+        return new ApiError(403, message, []);
+    }
+
 }

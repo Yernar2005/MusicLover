@@ -8,17 +8,19 @@ import {Context} from "../../main.tsx";
 const Registration: React.FC = () => {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
+    const [secretKey, setSecretKey] = useState<string>("")
     const navigate = useNavigate()
 
     const {store} = useContext(Context)
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         try{
-            store.registration(email, password)
+            await store.registration(email, password, secretKey)
 
-            if(store.isAuthenticated){
-                navigate('/main')
-            }
+            // if(store.isAuthenticated){
+            //     navigate('/main')
+            // }
         }
         catch (e) {
             console.log("Ошибка во время вхождение: " , e)
@@ -59,10 +61,25 @@ const Registration: React.FC = () => {
                                 placeholder="Пароль"
                                 required
                             />
-
                         </div>
                     </div>
-                    <button type="submit" className="registration-button">
+
+
+                    <div className="form-group">
+                        <label htmlFor="password">Секретный ключ, если у вас есть</label>
+                        <div className="password-input-container">
+                            <input
+                                id="secretKey"
+                                value={secretKey}
+                                onChange={(e) => setSecretKey(e.target.value)}
+                                placeholder="Введите Секретный ключ"
+                                required
+                            />
+                        </div>
+                    </div>
+
+
+                    <button type="submit" className="registration-button" >
                         Регистрироваться
                     </button>
 

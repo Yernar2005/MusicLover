@@ -1,7 +1,7 @@
 const Music = require('../models/music-model')
 
 
-const createMusic = async (body, musicBuf, musicType, coverBuf, coverType) => {
+const createMusic = async (body, musicBuf, musicType, coverBuf, coverType, uploaderId) => {
     let {Title, Artist, Date, Lyrics, Annotation, Genre, AdditionalInformation} = body;
     if (typeof Genre === 'string') {
         try {
@@ -21,7 +21,8 @@ const createMusic = async (body, musicBuf, musicType, coverBuf, coverType) => {
             Music: musicBuf,
             MusicType: musicType,
             Cover: coverBuf,
-            CoverType: coverType
+            CoverType: coverType,
+            uploaderId
         }).save();
 
         return doc;

@@ -8,9 +8,6 @@ $green-button-hover: #1fdf64;
 $input-background: #121212;
 $input-border: rgba(255, 255, 255, 0.1);
 
-// Global styles
-
-// Login container
 .login-container {
   display: flex;
   justify-content: center;
@@ -20,7 +17,6 @@ $input-border: rgba(255, 255, 255, 0.1);
   background-color: $background-color;
 }
 
-// Login card
 .login-card {
   display: flex;
   flex-direction: column;
@@ -33,14 +29,6 @@ $input-border: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-// Spotify logo
-.spotify-logo {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-// Login title
 .login-title {
   font-size: 28px;
   font-weight: 700;
@@ -48,7 +36,6 @@ $input-border: rgba(255, 255, 255, 0.1);
   margin-bottom: 30px;
 }
 
-// Divider
 .divider {
   width: 100%;
   height: 1px;
@@ -56,7 +43,6 @@ $input-border: rgba(255, 255, 255, 0.1);
   margin: 20px 0;
 }
 
-// Login form
 .login-form {
   width: 100%;
   margin-bottom: 20px;
@@ -89,6 +75,10 @@ $input-border: rgba(255, 255, 255, 0.1);
       &::placeholder {
         color: $text-secondary;
       }
+    }
+    &-button{
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -137,7 +127,6 @@ $input-border: rgba(255, 255, 255, 0.1);
   }
 }
 
-// Forgot password
 .forgot-password {
   margin-top: 20px;
   text-align: center;
@@ -153,7 +142,6 @@ $input-border: rgba(255, 255, 255, 0.1);
   }
 }
 
-// Registration prompt
 .registration-prompt {
   margin-top: 20px;
   text-align: center;

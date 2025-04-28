@@ -10,7 +10,7 @@ const ApiError = require('../exceptions/api-error');
 
 
 class UserService {
-    async registration(email, password) {
+    async registration(email, password, secretKey) {
         const candidate = await UserModel.findOne({email})
         if (candidate) {
             throw ApiError.BadRequestError("User already exist");
@@ -19,9 +19,18 @@ class UserService {
         const hashedPassword = await bcrypt.hash(password, 3);
         const activationLink = uuid.v4()
 
-        const user = await UserModel.create({email, password: hashedPassword, activationLink})
+        let role = 'user';
+
+        if (secretKey === process.env.MUSICIAN_KEY) {
+            role = 'musician';
+        } else if (secretKey === process.env.ADMIN_KEY) {
+            role = 'admin';
+        }
+
+
+        const user = await UserModel.create({email, password: hashedPassword, activationLink, role})
         await MailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`)
-        const userDto = new UserDto(user)
+        const userDto = new UswerDto(user)
 
 
         const tokens = tokenService.generateToken({...userDto})
@@ -70,7 +79,7 @@ class UserService {
 
         const userData = tokenService.validateRefreshToken(refreshToken)
         const tokenFromDb = await tokenService.findToken(refreshToken)
-        if(!userData || !tokenFromDb) {
+        if (!userData || !tokenFromDb) {
             throw ApiError.UnauthorizedError("Refresh token is not valid")
 
         }
@@ -82,7 +91,7 @@ class UserService {
         return {...tokens, user: userDto}
     }
 
-    async getAllUsers(){
+    async getAllUsers() {
         const users = await UserModel.find();
         return users;
     }

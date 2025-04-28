@@ -1,5 +1,5 @@
 // Variables
-$background-color: rgba(18,18,18,255);
+$background-color: rgba(18, 18, 18, 255);
 $card-background: #1e1e1e;
 $text-color: #ffffff;
 $secondary-text: rgba(255, 255, 255, 0.7);
@@ -18,7 +18,6 @@ $secondary-button-border: #ffffff;
   border-radius: 20px;
 }
 
-// Header
 .header {
   display: flex;
   justify-content: space-between;
@@ -49,7 +48,6 @@ $secondary-button-border: #ffffff;
   }
 }
 
-// Content
 .content {
   flex: 1;
   display: flex;
@@ -57,7 +55,6 @@ $secondary-button-border: #ffffff;
   gap: 20px;
 }
 
-// Card
 .card {
   background-color: $card-background;
   border-radius: 8px;
@@ -70,7 +67,8 @@ $secondary-button-border: #ffffff;
     font-size: 15px;
     font-weight: 800;
   }
-  &-description{
+
+  &-description {
     font-size: 12px;
     color: $secondary-text;
     margin-bottom: 8px;
@@ -78,11 +76,9 @@ $secondary-button-border: #ffffff;
 }
 
 
-
-.card-container{
+.card-container {
 }
 
-// Buttons
 .primary-button, .secondary-button {
   padding: 12px 24px;
   border-radius: 50px;
@@ -113,7 +109,6 @@ $secondary-button-border: #ffffff;
   }
 }
 
-// Footer
 .footer {
   margin-top: 40px;
   padding-top: 20px;

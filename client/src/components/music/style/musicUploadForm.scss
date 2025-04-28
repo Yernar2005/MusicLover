@@ -1,0 +1,313 @@
+@use "sass:color";
+$primary-color: #3b82f6;
+$primary-hover: #2563eb;
+$error-color: #ef4444;
+$border-color: #e5e7eb;
+$text-color: #1ed760;
+$text-muted: #6b7280;
+$bg-color: #ffffff;
+$bg-muted: #f3f4f6;
+$border-radius: 0.375rem;
+$box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+$transition: all 0.2s ease-in-out;
+
+@mixin flex($direction: row, $justify: flex-start, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap > 0 {
+    gap: $gap;
+  }
+}
+
+@mixin button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius;
+  font-weight: 500;
+  transition: $transition;
+  cursor: pointer;
+  border: none;
+
+  &:focus {
+    outline: 2px solid rgba($primary-color, 0.5);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: $text-color;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.form-container {
+  max-width: 48rem;
+  margin: 0 auto;
+
+  .form {
+    @include flex(column, flex-start, stretch, 1.5rem);
+  }
+}
+
+.form-group {
+  @include flex(column, flex-start, stretch, 0.5rem);
+
+  .label {
+    font-weight: 500;
+    color: $text-color;
+    margin-bottom: 0.25rem;
+
+    .required {
+      color: $error-color;
+      margin-left: 0.25rem;
+    }
+
+    .hint {
+      font-weight: normal;
+      font-size: 0.875rem;
+      color: $text-muted;
+      margin-left: 0.25rem;
+    }
+  }
+
+  .input,
+  .textarea {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: $bg-color;
+    color: $text-color;
+    transition: $transition;
+    font-family: inherit;
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.25);
+    }
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+
+  .textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  .error-message {
+    color: $error-color;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+}
+
+.file-upload {
+  @include flex(row, flex-start, center, 1rem);
+  flex-wrap: wrap;
+
+  .file-input {
+    display: none;
+  }
+
+  .upload-button {
+    @include button;
+    background-color: transparent;
+    border: 1px solid $border-color;
+    color: $text-color;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      background-color: $bg-muted;
+    }
+
+    .icon {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .file-preview {
+    @include flex(row, flex-start, center, 0.5rem);
+    flex: 1;
+    background-color: $bg-muted;
+    padding: 0.5rem 0.75rem;
+    border-radius: $border-radius;
+
+    .file-name {
+      font-size: 0.875rem;
+      color: $text-color;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+
+    .remove-button {
+      @include button;
+      width: 1.5rem;
+      height: 1.5rem;
+      padding: 0;
+      border-radius: 50%;
+      background-color: transparent;
+      color: $text-muted;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: $error-color;
+      }
+    }
+  }
+}
+
+.cover-preview {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+
+  .cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+
+  .remove-button {
+    @include button;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border-radius: 50%;
+    background-color: $error-color;
+    color: white;
+
+    &:hover {
+      //background-color: darken($error-color, 10%);
+      background-color: color.adjust($error-color, $lightness: -10%);
+    }
+  }
+}
+
+// Genre Tags
+.genre-input-container {
+  @include flex(row, flex-start, center, 0.5rem);
+
+  .genre-input {
+    flex: 1;
+  }
+
+  .add-button {
+    @include button;
+    background-color: $primary-color;
+    color: white;
+    padding: 0.625rem 1rem;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+}
+
+.genre-tags {
+  @include flex(row, flex-start, center, 0.5rem);
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+
+  .genre-tag {
+    @include flex(row, flex-start, center, 0.25rem);
+    background-color: $bg-muted;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+
+    .tag-text {
+      font-size: 0.875rem;
+      color: $text-color;
+    }
+
+    .remove-button {
+      @include button;
+      width: 1.25rem;
+      height: 1.25rem;
+      padding: 0;
+      border-radius: 50%;
+      background-color: transparent;
+      color: $text-muted;
+
+      &:hover {
+        color: $error-color;
+      }
+    }
+  }
+}
+
+.json-preview {
+  font-size: 0.875rem;
+  color: $text-muted;
+  margin-top: 0.25rem;
+}
+
+// Submit Button
+.submit-button {
+  @include button;
+  width: 100%;
+  background-color: $primary-color;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 640px) {
+  .file-upload {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .file-preview {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .genre-input-container {
+    flex-direction: column;
+    align-items: stretch;
+
+    .add-button {
+      margin-top: 0.5rem;
+    }
+  }
+}

@@ -31,7 +31,8 @@ export default class Store {
                 {
                     id: response.data.user.id,
                     email: response.data.user.email,
-                    isActivated: response.data.user.isActivated
+                    isActivated: response.data.user.isActivated,
+                    role: response.data.user.role,
                 }
             )
         } catch (e) {
@@ -41,9 +42,9 @@ export default class Store {
 
 
 
-    async registration(email: string, password: string) {
+    async registration(email: string, password: string, secretKey:string) {
         try {
-            const response = await AuthService.registration(email, password);
+            const response = await AuthService.registration(email, password, secretKey);
             console.log("Ответ от сервера:", response);
 
             if (!response || !response.data) {
@@ -71,7 +72,7 @@ export default class Store {
         }
     }
 
-    async Logout(){
+    async logout(){
         const response = await AuthService.logout();
         localStorage.removeItem('token');
         this.setAuth(false);

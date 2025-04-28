@@ -10,24 +10,23 @@ import {useNavigate} from "react-router-dom";
 import {Context} from "../../main.tsx";
 
 const LoginForm: React.FC = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [showPassword, setShowPassword] = useState(false)
+    const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const [showPassword, setShowPassword] = useState<boolean>(false)
 
     const {store} = useContext(Context)
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
 
-        try{
+        try {
             await store.login(email, password)
 
-            if(store.isAuthenticated){
+            if (store.isAuthenticated) {
                 navigate('/main')
             }
-        }
-        catch (e) {
-            console.log("Ошибка во время регистрации: " ,e)
+        } catch (e) {
+            console.log("Ошибка во время регистрации: ", e)
         }
     }
 
@@ -82,9 +81,12 @@ const LoginForm: React.FC = () => {
                         </div>
                     </div>
 
-                    <button type="submit" className="login-button">
-                        Войти
-                    </button>
+
+                    <div className="form-group-button">
+                        <button type="submit" className="login-button">
+                            Войти
+                        </button>
+                    </div>
                 </form>
 
                 <div className="forgot-password">

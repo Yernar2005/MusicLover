@@ -11,7 +11,7 @@ const Home:React.FC = () => {
       <div className="home-container">
         <Header/>
         <div className="home-container-content">
-            <MediaLibrary/>
+            {/*<MediaLibrary/>*/}
             <PopularContent/>
         </div>
       </div>

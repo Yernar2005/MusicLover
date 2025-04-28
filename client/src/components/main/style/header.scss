@@ -58,6 +58,11 @@
   overflow: hidden;
   cursor: pointer;
   transition: background-color 0.5s ease;
+
+  &_center{
+    margin-left:  auto;   /* или margin: 0 auto; */
+    margin-right: auto;
+  }
 }
 
 .btn_item {

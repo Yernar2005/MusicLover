@@ -1,6 +1,6 @@
 const {createMusic, getMusic} = require('../service/music-service');
 const svc = require('../service/music-service');
-
+const Music = require('../models/music-model');
 
 const uploadMusic = async (req, res) => {
     console.log('req.files:', req.files?.["Music"]);
@@ -19,10 +19,11 @@ const uploadMusic = async (req, res) => {
             musicFile[0].buffer,
             musicFile[0].mimetype,
             coverFile[0].buffer,
-            coverFile[0].mimetype
+            coverFile[0].mimetype,
+            req.user.id
         );
 
-        const { Music, Cover, ...light } = musicDoc.toObject();
+        const {Music, Cover, ...light} = musicDoc.toObject();
         res.status(201).json(light);
     } catch (error) {
         res.status(500).json({error: error.message});
@@ -83,7 +84,7 @@ const streamMusic = async (req, res) => {
         }
 
         let [start, end] = range.substring(bytesPrefix.length).split('-').map(Number);
-        if(isNaN(end)) {
+        if (isNaN(end)) {
             end = total - 1;
         }
         const chunk = audio.slice(start, end + 1);
@@ -96,7 +97,7 @@ const streamMusic = async (req, res) => {
             'Content-Type': mime,
         })
             .end(chunk);
-    }else{
+    } else {
         res.set({
             'Content-Length': total,
             'Content-Type': mime
@@ -104,11 +105,33 @@ const streamMusic = async (req, res) => {
     }
 }
 
+
+const deleteMusic = async (req, res, next) => {
+    try {
+        const doc = await Music.findById(req.params.id);
+        if (!doc) {
+            return res.status(404).json({error: 'Not found'});
+        }
+
+        const isOwner = doc.uploaderId?.toString() === req.user.id;
+        const isAdmin = req.user.role === 'admin';
+
+        if (!isOwner && !isAdmin) {
+            return res.status(403).json({error: 'Not authorized'});
+        }
+
+        await doc.deleteOne();
+        res.sendStatus(204);
+    } catch (e) {
+        next(e)
+    }
+}
 module.exports = {
     uploadMusic,
     fetchMusic,
     getAll,
     getById,
     getCover,
-    streamMusic
+    streamMusic,
+    deleteMusic
 }
