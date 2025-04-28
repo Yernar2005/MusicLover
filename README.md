@@ -110,3 +110,29 @@ React, MobX, axios, TailwindCSS
 DevOps / Tools
 Vite, ESLint, Prettier
 Быстрая сборка, единый стиль.
+
+
+
+env file
+
+
+PORT=5001
+DB_URL=Your mongoDB
+
+JWT_ACCESS_SECRET=jwt_access_secret_key
+JWT_REFRESH_SECRET=jwt_refresh_secret_key
+
+MUSICIAN_KEY=
+ADMIN_KEY=
+
+
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SSL=465
+SMTP_USER=
+SMTP_PASSWORD=""
+
+
+API_URL=http://localhost:5001
+CLIENT_URL=http://localhost:5173)
