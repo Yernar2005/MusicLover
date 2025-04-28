@@ -1,10 +1,10 @@
-
 .popular-tracks {
   padding: 20px;
   color: #fff;
-  background-color: rgba(18,18,18,255);
+  background-color: rgba(18, 18, 18, 255);
   border-radius: 20px;
-  height: 373px;
+  width: 100%;
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -30,15 +30,21 @@
   }
 
   &__grid {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 30px;
 
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+.track-card-skeleton {
+  width: 180px;
+  height: 250px;
+  border-radius: 8px;
+  background-color: #dddcdc;
 }
 
 .track-card {
@@ -105,5 +111,24 @@
     margin: 0;
     font-size: 14px;
     color: #b3b3b3;
+  }
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+
+  .search-icon {
+    position: absolute;
+    left: 7px;
+  }
+
+  .search-input {
+    border: 1px solid #ccc;
+    padding: 10px 35px;
+    border-radius: 20px;
+    font-size: 16px;
   }
 }

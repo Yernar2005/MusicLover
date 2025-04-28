@@ -18,6 +18,7 @@ export interface MusicFull extends MusicSummary {
     AdditionalInformation?: string;
     MusicType: string;
     CoverType: string;
+    audioBase64: string;
 }
 
 
@@ -35,12 +36,10 @@ export default class MusicService {
         return $api.get<MusicSummary[]>('/api/music')
     }
 
-    /** один трек – все метаданные (без аудио/cover) */
     static fetchById(id:string): Promise<AxiosResponse<MusicFull>> {
-        return $api.get<MusicFull>(`/api/music/${id}`)
+        return $api.get<MusicFull>(`/api/music/${id}/full`);
     }
 
-    /** ссылка на поток аудио (используется тегом <audio>) */
     static audioSrc(id:string){
         return `${$api.defaults.baseURL}/api/music/${id}/audio`
     }

@@ -5,40 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4573874c-b234-4176-bc5c-f92b0777ce69" name="Changes" comment="Second commit, upload audio, validator music, get music etc, potential translation music to front">
-      <change afterPath="$PROJECT_DIR$/client/src/components/music/MusicUploadForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/music/style/musicUploadForm.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/Track.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/services/MusicService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/store/musicStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controller/music-query-controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/middlewares/role-middleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/music-query.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/Music.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/styles/musicPage.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/LoginForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/auth/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/Registration.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/auth/loginForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/loginForm.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/auth/registration.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/registration.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/main/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/main/PopularContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/PopularContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/main/style/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/style/header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/models/IUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/models/IUser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/main/style/mediaLibrary.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/style/mediaLibrary.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/main/style/popularContent.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/main/style/popularContent.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/music/MusicUploadForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/music/MusicUploadForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/styles/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/styles/home.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/welcome/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/welcome/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/services/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/AuthService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/services/MusicService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/MusicService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/db.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controller/music-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/music-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controller/user-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dtos/user-dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dtos/user-dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/exceptions/api-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/exceptions/api-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controller/music-query-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/music-query-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middlewares/auth-middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/auth-middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/music-model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/music-model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/user-model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/user-model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/router/music-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router/music-route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/mail-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/mail-service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/service/music-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/music-service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/service/user-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/user-service.js" afterDir="false" />
     </list>
@@ -56,8 +45,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -127,9 +116,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/pages" />
       <recent name="$PROJECT_DIR$/client/src/components/music" />
       <recent name="$PROJECT_DIR$/client/src/components/main" />
-      <recent name="$PROJECT_DIR$/client/src/pages" />
       <recent name="$PROJECT_DIR$/client/src/components/auth" />
       <recent name="$PROJECT_DIR$/client/src/components" />
     </key>
@@ -196,6 +185,7 @@
       <workItem from="1745827471421" duration="5637000" />
       <workItem from="1745839116847" duration="437000" />
       <workItem from="1745840357604" duration="6606000" />
+      <workItem from="1745852168133" duration="10626000" />
     </task>
     <task id="LOCAL-00001" summary="main point">
       <option name="closed" value="true" />
@@ -229,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745734520640</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Second commit, upload audio, validator music, get music etc, potential translation music to front">
+      <option name="closed" value="true" />
+      <created>1745852454347</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745852454347</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

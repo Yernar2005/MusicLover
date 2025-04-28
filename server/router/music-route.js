@@ -23,9 +23,13 @@ router.post('/upload', auth, requireRole("musician", "admin"), upload.fields([
 router.delete('/:id', auth, requireRole("musician", "admin"), ctrl.deleteMusic);
 
 /* ----- публичные GET-энд-поинты ----- */
+router.get('/:id/full',  ctrl.getFull);
 router.get('/:id/audio',  ctrl.streamMusic);
 router.get('/:id/cover',  ctrl.getCover);
+
+
 router.get('/:id',        ctrl.getById);      // документ без бинарей
 // router.get('/',           ctrlQry.listSummary); // для главной страницы
 router.get('/', ctrlQry.listMusic);
+
 module.exports = router;

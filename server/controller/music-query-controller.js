@@ -38,3 +38,10 @@ exports.listSummary = async (_req, res, next) => {
         res.json(items);                   // теперь [{ _id, Title, Artist, coverUrl }]
     } catch (e) { next(e); }
 };
+
+
+exports.getFull = async (req, res, next) => {
+
+
+
+}

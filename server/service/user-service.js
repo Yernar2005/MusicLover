@@ -30,7 +30,7 @@ class UserService {
 
         const user = await UserModel.create({email, password: hashedPassword, activationLink, role})
         await MailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`)
-        const userDto = new UswerDto(user)
+        const userDto = new UserDto(user)
 
 
         const tokens = tokenService.generateToken({...userDto})

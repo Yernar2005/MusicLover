@@ -126,6 +126,36 @@ const deleteMusic = async (req, res, next) => {
         next(e)
     }
 }
+
+
+
+
+const getFull = async(req, res, next) =>{
+    try{
+        const doc = await Music.findById(req.params.id).lean({virtuals: true});
+        if (!doc) {
+            return res.status(404).json({error: 'Not found'});
+        }
+
+
+        const buffer = doc.Music;
+        const mime = doc.MusicType || 'application/octet-stream';
+
+
+        delete doc.Music;
+
+        res.json({
+            ...doc,
+            MusicType: mime,
+            audioBase64: buffer.toString('base64')
+        });
+    }
+    catch (e){
+        next(e)
+    }
+
+}
+
 module.exports = {
     uploadMusic,
     fetchMusic,
@@ -133,5 +163,6 @@ module.exports = {
     getById,
     getCover,
     streamMusic,
-    deleteMusic
+    deleteMusic,
+    getFull
 }

@@ -18,9 +18,9 @@ const Registration: React.FC = () => {
         try{
             await store.registration(email, password, secretKey)
 
-            // if(store.isAuthenticated){
-            //     navigate('/main')
-            // }
+            if(store.isAuthenticated){
+                navigate('/main')
+            }
         }
         catch (e) {
             console.log("Ошибка во время вхождение: " , e)
@@ -73,7 +73,7 @@ const Registration: React.FC = () => {
                                 value={secretKey}
                                 onChange={(e) => setSecretKey(e.target.value)}
                                 placeholder="Введите Секретный ключ"
-                                required
+
                             />
                         </div>
                     </div>

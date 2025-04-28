@@ -7,7 +7,6 @@ class MailService {
     constructor() {
         const port = parseInt(process.env.SMTP_PORT, 10);
 
-        // создаём транспорт
         this.transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,    // например "smtp.gmail.com"
             port: port,                     // число, не строка
@@ -18,7 +17,6 @@ class MailService {
                 pass: process.env.SMTP_PASSWORD,  // пароль из .env
             },
             tls: {
-                // не валидировать самоподписанные сертификаты (если нужно)
                 rejectUnauthorized: false
             }
         });
@@ -29,11 +27,6 @@ class MailService {
             .catch(err => console.error('Ошибка подключения к SMTP:', err));
     }
 
-    /**
-     * Отправка письма с активационной ссылкой
-     * @param {string} to — адрес получателя
-     * @param {string} link — активационная ссылка
-     */
     async sendActivationMail(to, link) {
         try {
             const info = await this.transporter.sendMail({
@@ -52,7 +45,6 @@ class MailService {
             console.log('Mail sent:', info.messageId);
         } catch (err) {
             console.error('Ошибка отправки письма:', err);
-            // здесь можно пробросить ошибку дальше или логировать
             throw err;
         }
     }
