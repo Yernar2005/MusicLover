@@ -41,6 +41,7 @@ const MusicUploadForm = observer(() => {
     // }, [store.isAuthenticated]);
 
 
+    /* --- redirect, если не музыкант и не админ --- */
     if (!["musician", "admin"].includes((store.user).role || "user"))
         return <p className="text-red-600 p-6">У вас нет прав на загрузку треков.</p>;
 
@@ -180,6 +181,7 @@ const MusicUploadForm = observer(() => {
             <h1 className="form-title">Загрузка музыкального трека</h1>
 
             <form onSubmit={handleSubmit} className="form">
+                {/* ----- music file ----- */}
                 <div className="form-group">
                     <label className="label">
                         Music <span className="hint">(mp3/m4a/wav ≤ 16&nbsp;МБ)</span>
@@ -208,6 +210,7 @@ const MusicUploadForm = observer(() => {
                     {errors.music && <p className="error-message">{errors.music}</p>}
                 </div>
 
+                {/* ----- cover file ----- */}
                 <div className="form-group">
                     <label className="label">
                         Cover <span className="required">*</span>{" "}
@@ -237,6 +240,7 @@ const MusicUploadForm = observer(() => {
                     {errors.cover && <p className="error-message">{errors.cover}</p>}
                 </div>
 
+                {/* ----- Title / Artist / Date ----- */}
                 {["title", "artist"].map(f => (
                     <div key={f} className="form-group">
                         <label className="label">
@@ -294,10 +298,11 @@ const MusicUploadForm = observer(() => {
                     )}
                 </div>
 
+                {/* ----- Lyrics / Annotation / Additional ----- */}
                 {[
-                    ["Lyrics", 5],
-                    ["Annotation", 3],
-                    ["Additional Information", 3],
+                    ["lyrics", 5],
+                    ["annotation", 3],
+                    ["additionalInformation", 3],
                 ].map(([name, rows]) => (
                     <div key={name} className="form-group">
                         <label className="label">{name}</label>

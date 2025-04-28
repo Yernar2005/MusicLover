@@ -18,8 +18,7 @@ function App() {
             <Route path="/auth/login" element={<LoginForm/>}/>
             <Route path="/auth/registration" element={<Registration/>}/>
             <Route path="/music/upload" element={<MusicUploadForm/>}/>
-            <Route path="/music/page" element={<MusicPage/>}/>
-            <Route path="/track/:id" element={<MusicPage />} />
+            <Route path="/track/:id" element={<MusicPage/>}/>
 
         </Routes>
     )
