@@ -5,9 +5,9 @@ import {
     FormEvent,
     useContext,
 } from "react";
-import { X, Upload, Music as MusicIcon } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { observer } from "mobx-react-lite";
+import {X, Upload, Music as MusicIcon} from "lucide-react";
+import {useNavigate} from "react-router-dom";
+import {observer} from "mobx-react-lite";
 
 import $api from "../../http/index.ts";
 
@@ -27,13 +27,8 @@ interface FormDataState {
 }
 
 const MusicUploadForm = observer(() => {
-    const { store } = useContext(Context);
-    const navigate  = useNavigate();
-
-
-
-
-
+    const {store} = useContext(Context);
+    const navigate = useNavigate();
 
 
     // useEffect(() => {
@@ -59,17 +54,17 @@ const MusicUploadForm = observer(() => {
     });
 
     const [coverPreview, setCoverPreview] = useState<string | null>(null);
-    const [genreInput, setGenreInput]     = useState("");
-    const [errors, setErrors]             = useState<Record<string, string>>({});
-    const [submitting, setSubmitting]     = useState(false);
+    const [genreInput, setGenreInput] = useState("");
+    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [submitting, setSubmitting] = useState(false);
 
     const musicInputRef = useRef<HTMLInputElement>(null);
     const coverInputRef = useRef<HTMLInputElement>(null);
 
     const handleTextChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-        if (errors[name]) setErrors(prev => ({ ...prev, [name]: "" }));
+        const {name, value} = e.target;
+        setFormData(prev => ({...prev, [name]: value}));
+        if (errors[name]) setErrors(prev => ({...prev, [name]: ""}));
     };
 
     const handleMusicUpload = (e: ChangeEvent<HTMLInputElement>) => {
@@ -77,14 +72,14 @@ const MusicUploadForm = observer(() => {
         if (!file) return;
 
         if (file.size > 16 * 1024 * 1024)
-            return setErrors(prev => ({ ...prev, music: "Файл ≤ 16 МБ" }));
+            return setErrors(prev => ({...prev, music: "Файл ≤ 16 МБ"}));
 
         const okTypes = ["audio/mpeg", "audio/mp4", "audio/wav", "audio/x-m4a"];
         if (!okTypes.includes(file.type))
-            return setErrors(prev => ({ ...prev, music: "mp3 / m4a / wav" }));
+            return setErrors(prev => ({...prev, music: "mp3 / m4a / wav"}));
 
-        setFormData(prev => ({ ...prev, music: file }));
-        setErrors(prev => ({ ...prev, music: "" }));
+        setFormData(prev => ({...prev, music: file}));
+        setErrors(prev => ({...prev, music: ""}));
     };
 
     const handleCoverUpload = (e: ChangeEvent<HTMLInputElement>) => {
@@ -92,20 +87,20 @@ const MusicUploadForm = observer(() => {
         if (!file) return;
 
         if (file.size > 2 * 1024 * 1024)
-            return setErrors(prev => ({ ...prev, cover: "Картинка ≤ 2 МБ" }));
+            return setErrors(prev => ({...prev, cover: "Картинка ≤ 2 МБ"}));
 
         const okTypes = ["image/jpeg", "image/png", "image/webp"];
         if (!okTypes.includes(file.type))
-            return setErrors(prev => ({ ...prev, cover: "jpeg / png / webp" }));
+            return setErrors(prev => ({...prev, cover: "jpeg / png / webp"}));
 
-        setFormData(prev => ({ ...prev, cover: file }));
+        setFormData(prev => ({...prev, cover: file}));
         setCoverPreview(URL.createObjectURL(file));
-        setErrors(prev => ({ ...prev, cover: "" }));
+        setErrors(prev => ({...prev, cover: ""}));
     };
 
     const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setFormData(prev => ({ ...prev, date: e.target.value }));
-        setErrors(prev => ({ ...prev, date: "" }));
+        setFormData(prev => ({...prev, date: e.target.value}));
+        setErrors(prev => ({...prev, date: ""}));
     };
 
     const handleAddGenre = () => {
@@ -117,16 +112,16 @@ const MusicUploadForm = observer(() => {
         setGenreInput("");
     };
     const handleRemoveGenre = (i: number) =>
-        setFormData(prev => ({ ...prev, genre: prev.genre.filter((_, idx) => idx !== i) }));
+        setFormData(prev => ({...prev, genre: prev.genre.filter((_, idx) => idx !== i)}));
 
     const removeCover = () => {
-        setFormData(prev => ({ ...prev, cover: null }));
+        setFormData(prev => ({...prev, cover: null}));
         setCoverPreview(null);
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         coverInputRef.current && (coverInputRef.current.value = "");
     };
     const removeMusic = () => {
-        setFormData(prev => ({ ...prev, music: null }));
+        setFormData(prev => ({...prev, music: null}));
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         musicInputRef.current && (musicInputRef.current.value = "");
     };
@@ -162,13 +157,17 @@ const MusicUploadForm = observer(() => {
         try {
             setSubmitting(true);
             await $api.post("/api/music/upload", fd, {
-                headers: { "Content-Type": "multipart/form-data" },
+                headers: {"Content-Type": "multipart/form-data"},
             });
             alert("Трек загружен!");
             navigate("/main");
         } catch (err) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             if (err.response?.status === 403)
                 alert("Нет прав (нужна роль musician/admin)");
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             else alert("Ошибка загрузки: " + err.message);
         } finally {
             setSubmitting(false);
@@ -195,14 +194,14 @@ const MusicUploadForm = observer(() => {
                             onChange={handleMusicUpload}
                         />
                         <button type="button" className="upload-button" onClick={() => musicInputRef.current?.click()}>
-                            <Upload size={16} className="icon" /> Выбрать
+                            <Upload size={16} className="icon"/> Выбрать
                         </button>
                         {formData.music && (
                             <div className="file-preview">
-                                <MusicIcon size={16} className="icon" />
+                                <MusicIcon size={16} className="icon"/>
                                 <span>{formData.music.name}</span>
                                 <button type="button" className="remove-button" onClick={removeMusic}>
-                                    <X size={14} />
+                                    <X size={14}/>
                                 </button>
                             </div>
                         )}
@@ -225,14 +224,15 @@ const MusicUploadForm = observer(() => {
                             onChange={handleCoverUpload}
                         />
                         {!coverPreview ? (
-                            <button type="button" className="upload-button" onClick={() => coverInputRef.current?.click()}>
-                                <Upload size={16} className="icon" /> Выбрать
+                            <button type="button" className="upload-button"
+                                    onClick={() => coverInputRef.current?.click()}>
+                                <Upload size={16} className="icon"/> Выбрать
                             </button>
                         ) : (
                             <div className="cover-preview">
-                                <img src={coverPreview} alt="preview" className="cover-image" />
+                                <img src={coverPreview} alt="preview" className="cover-image"/>
                                 <button type="button" className="remove-button" onClick={removeCover}>
-                                    <X size={14} />
+                                    <X size={14}/>
                                 </button>
                             </div>
                         )}
@@ -248,6 +248,8 @@ const MusicUploadForm = observer(() => {
                         </label>
                         <input
                             name={f}
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-expect-error
                             value={(formData)[f]}
                             onChange={handleTextChange}
                             className="input"
@@ -290,7 +292,7 @@ const MusicUploadForm = observer(() => {
                                 <div key={i} className="genre-tag">
                                     {g}
                                     <button type="button" onClick={() => handleRemoveGenre(i)}>
-                                        <X size={12} />
+                                        <X size={12}/>
                                     </button>
                                 </div>
                             ))}
@@ -307,8 +309,12 @@ const MusicUploadForm = observer(() => {
                     <div key={name} className="form-group">
                         <label className="label">{name}</label>
                         <textarea
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-expect-error
                             name={name}
                             rows={rows as number}
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-expect-error
                             value={(formData)[name]}
                             onChange={handleTextChange}
                             className="textarea"
