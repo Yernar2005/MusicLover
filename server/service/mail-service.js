@@ -32,7 +32,7 @@ class MailService {
             const info = await this.transporter.sendMail({
                 from: process.env.SMTP_USER,
                 to,
-                subject: `Активация аккаунта на ${process.env.API_URL}`,
+                subject: `Активация аккаунта на ${process.env.VITE_API_URL}`,
                 text: `Перейдите по ссылке для активации: ${link}`,
                 html: `
           <div style="font-family:Arial,sans-serif;line-height:1.5">

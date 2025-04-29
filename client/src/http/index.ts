@@ -2,11 +2,11 @@ import axios from 'axios';
 import {AuthResponse} from "../models/response/AuthResponse.ts";
 
 
-export const API_URL = 'http://localhost:5001';
+export const VITE_API_URL = process.env.VITE_API_URL;
 
 const $api = axios.create({
     withCredentials: true,
-    baseURL: API_URL,
+    baseURL: VITE_API_URL,
 })
 
 
@@ -23,7 +23,7 @@ $api.interceptors.response.use((response) => {
 
     if (error.response?.status === 401) {
         try {
-            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
+            const response = await axios.get<AuthResponse>(`${VITE_API_URL}/refresh`, {withCredentials: true})
             localStorage.setItem('token', response.data.accessToken);
             return $api.request(originalRequest)
         } catch (e) {
