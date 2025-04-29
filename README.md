@@ -1,3 +1,8 @@
+https://drive.google.com/file/d/1cJ9sXltoAlbBj0gyjlxUiP0Z5jsBlc5q/view
+
+
+
+
 Music Streaming Service
 
 Краткое описание проекта
@@ -136,3 +141,6 @@ SMTP_PASSWORD=""
 
 API_URL=http://localhost:5001
 CLIENT_URL=http://localhost:5173)
+
+
+
